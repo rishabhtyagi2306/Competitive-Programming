@@ -1,5 +1,5 @@
-//https://www.spoj.com/problems/M3TILE/
-//https://www.geeksforgeeks.org/tiling-with-dominoes/
+//https://www.spoj.com/problems/MIXTURES/
+//https://www.youtube.com/watch?v=XHjjIJxnAJY
 
 
 
@@ -44,25 +44,41 @@ typedef tree<pii, null_type, less<pii>, rb_tree_tag,
 
 
 
-
+ll a[1000];
+ll dp[1000][1000];
+ll sum(ll s, ll e)
+{
+    ll ans = 0;
+    for(int i = s; i <= e; i++)
+    {
+        ans = (ans+a[i])%100;
+    }
+    return ans;
+}
+ll solve(ll i, ll j)
+{
+    if(i >= j)
+        return dp[i][j] = 0;
+    if(dp[i][j] != -1)
+        return dp[i][j];
+    dp[i][j] = LLONG_MAX;
+    for(int k = i; k < j; k++)
+    {
+        dp[i][j] = min(dp[i][j], solve(i, k) + solve(k+1, j) + sum(i, k)*sum(k+1, j));
+    }
+    return dp[i][j];
+}
 int main() {
     FASTIO
-	int n;
-	while(cin>>n)
-	{
-		if(n == -1)
-			break;
-		ll a[n+1], b[n+1], i;
-		a[0] = 1;
-		a[1] = 0;
-		b[0] = 0;
-		b[1] = 1;
-		for(i = 2; i <= n; i++)
-		{
-			a[i] = a[i-2] + 2*b[i-1];
-			b[i] = b[i-2] + a[i-1];
-		}
-		cout<<a[n]<<endl;
-	}
-    return 0;
+    ll n;
+    while(cin>>n)
+    {
+        memset(dp, -1, sizeof(dp));
+        int i;
+        for(i = 0; i < n; i++)
+            cin>>a[i];
+        ll ans = solve(0, n-1);
+        cout<<ans<<endl;
+    }
+    return 0; 
 }
