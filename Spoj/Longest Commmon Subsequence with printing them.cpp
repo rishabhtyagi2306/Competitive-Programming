@@ -73,6 +73,11 @@ void findseq(int i, int j,set<string>& sequences,string word)
 }
 int main() {
     FASTIO
+     #ifndef ONLINE_JUDGE
+        freopen("input.txt","r",stdin);
+        freopen("output.txt","w",stdout);
+        freopen("error.txt","w",stderr);
+    #endif
     int t;
     cin>>t;
     set<string> sequences;
