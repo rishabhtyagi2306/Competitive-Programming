@@ -49,6 +49,11 @@ class Solution {
    }
 };
 main(){
+   #ifndef ONLINE_JUDGE
+        freopen("input.txt","r",stdin);
+        freopen("output.txt","w",stdout);
+        freopen("error.txt","w",stderr);
+    #endif
    vector<int> v = {2,-1,1,2,2};
    Solution ob;
    cout << (ob.circularArrayLoop(v));
