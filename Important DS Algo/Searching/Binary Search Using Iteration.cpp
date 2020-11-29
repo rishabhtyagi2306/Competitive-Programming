@@ -1,7 +1,7 @@
 
 // A iterative binary search function. It returns 
 // location of x in given array arr[l..r] if present, 
-// otherwise -1 
+// otherwise -1 .
 
 // Initially,
 // l = 0, first index of arr[].
