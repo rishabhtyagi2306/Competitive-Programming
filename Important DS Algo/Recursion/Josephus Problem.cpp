@@ -16,6 +16,11 @@ int josephus(int n, int k)
 // Driver Program to test above function
 int main()
 {
+  #ifndef ONLINE_JUDGE
+        freopen("input.txt","r",stdin);
+        freopen("output.txt","w",stdout);
+        freopen("error.txt","w",stderr);
+    #endif
   int n = 14;
   int k = 2;
   printf("The chosen place is %d", 
