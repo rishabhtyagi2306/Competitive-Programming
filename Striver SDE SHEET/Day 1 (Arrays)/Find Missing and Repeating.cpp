@@ -11,7 +11,7 @@ public:
         
         int *ans = new int(2);
         
-        int bit = tmp & ~(tmp - 1);
+        int bit = tmp & ~(tmp - 1); // what is the leftmost set bit
         ans[0] = ans[1] = 0;
         for(i = 0; i < n; i++)
         {
