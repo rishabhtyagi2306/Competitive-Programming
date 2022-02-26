@@ -45,6 +45,11 @@ typedef tree<pii, null_type, less<pii>, rb_tree_tag,
 
 int main() {
     FASTIO
+     #ifndef ONLINE_JUDGE
+        freopen("input.txt","r",stdin);
+        freopen("output.txt","w",stdout);
+        freopen("error.txt","w",stderr);
+    #endif
     int n, i;
     cin>>n;
     int a[n], b[n];
